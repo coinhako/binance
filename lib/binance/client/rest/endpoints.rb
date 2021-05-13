@@ -23,6 +23,7 @@ module Binance
         account:          'v3/account',
         my_trades:        'v3/myTrades',
         user_data_stream: 'v1/userDataStream',
+        trading_fee: '/wapi/v3/tradeFee.html',
 
         # Withdraw API Endpoints
         withdraw:         'v3/withdraw.html',
