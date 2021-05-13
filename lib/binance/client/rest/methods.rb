@@ -74,7 +74,8 @@ module Binance
         # #close_stream!
         { name: :close_stream!, client: :verified,
           action: :delete, endpoint: :user_data_stream },
-        { name: :trading_fee, client: :verified,
+
+        { name: :trading_fee, client: :signed,
           action: :get, endpoint: :trading_fee },
 
         # Withdraw API Methods
