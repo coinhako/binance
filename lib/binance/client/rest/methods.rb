@@ -53,6 +53,15 @@ module Binance
         # #cancel_order!
         { name: :cancel_order!, client: :signed,
           action: :delete, endpoint: :order },
+        # #create_oco_order!
+        { name: :create_oco_order!, client: :signed,
+          action: :post, endpoint: :oco_order },
+        # #query_order
+        { name: :query_oco_order, client: :signed,
+          action: :get, endpoint: :oco_order_list },
+        # #cancel_oco_order!
+        { name: :cancel_oco_order!, client: :signed,
+          action: :delete, endpoint: :oco_order_list },
         # #open_orders
         { name: :open_orders, client: :signed,
           action: :get, endpoint: :open_orders },
