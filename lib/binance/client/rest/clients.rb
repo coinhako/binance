@@ -5,6 +5,7 @@ module Binance
     class REST
       def public_client(adapter)
         Faraday.new(url: "#{BASE_URL}/api", request: { timeout: 2 }) do |conn|
+          conn.request :retry
           conn.request :json
           conn.response :json, content_type: /\bjson$/
           conn.adapter adapter
@@ -13,6 +14,7 @@ module Binance
 
       def verified_client(api_key, adapter)
         Faraday.new(url: "#{BASE_URL}/api", request: { timeout: 5 }) do |conn|
+          conn.request :retry
           conn.response :json, content_type: /\bjson$/
           conn.headers['X-MBX-APIKEY'] = api_key
           conn.adapter adapter
@@ -21,6 +23,7 @@ module Binance
 
       def signed_client(api_key, secret_key, adapter)
         Faraday.new(url: "#{BASE_URL}/api", request: { timeout: 10 }) do |conn|
+          conn.request :retry
           conn.request :json
           conn.response :json, content_type: /\bjson$/
           conn.headers['X-MBX-APIKEY'] = api_key
@@ -32,6 +35,7 @@ module Binance
 
       def public_withdraw_client(adapter)
         Faraday.new(url: "#{BASE_URL}/wapi", request: { timeout: 2 }) do |conn|
+          conn.request :retry
           conn.request :json
           conn.response :json, content_type: /\bjson$/
           conn.adapter adapter
